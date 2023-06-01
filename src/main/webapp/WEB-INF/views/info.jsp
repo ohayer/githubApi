@@ -1,3 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+
 <%--
   Created by IntelliJ IDEA.
   User: olik0
@@ -7,10 +10,22 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
-    <title>$Title$</title>
-  </head>
-  <body>
-  $END$
-  </body>
+<head>
+    <title>Title</title>
+</head>
+<body>
+<c:if test="${error.getCode()==null}">
+    <p>${json}</p>
+</c:if>
+<c:if test="${error.getCode()!=null}">
+
+    <p> {
+
+        „status”: ${error.getCode()}
+
+        „Wiadomość”: ${error.getWhy()}
+
+        }</p>
+</c:if>
+</body>
 </html>
